@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(9% 0 0);
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(9% 0 0);
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(9% 0 0);
+  --color-primary: oklch(9% 0 0);
+  --color-primary-foreground: oklch(98% 0 0);
+  --color-secondary: oklch(96% 0 0);
+  --color-secondary-foreground: oklch(9% 0 0);
+  --color-muted: oklch(96% 0 0);
+  --color-muted-foreground: oklch(47% 0 0);
+  --color-accent: oklch(96% 0 0);
+  --color-accent-foreground: oklch(9% 0 0);
+  --color-destructive: oklch(60% 0.2 25);
+  --color-destructive-foreground: oklch(98% 0 0);
+  --color-border: oklch(91% 0 0);
+  --color-input: oklch(91% 0 0);
+  --color-ring: oklch(9% 0 0);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --color-background: oklch(9% 0 0);
+  --color-foreground: oklch(98% 0 0);
+  --color-card: oklch(9% 0 0);
+  --color-card-foreground: oklch(98% 0 0);
+  --color-popover: oklch(9% 0 0);
+  --color-popover-foreground: oklch(98% 0 0);
+  --color-primary: oklch(98% 0 0);
+  --color-primary-foreground: oklch(9% 0 0);
+  --color-secondary: oklch(18% 0 0);
+  --color-secondary-foreground: oklch(98% 0 0);
+  --color-muted: oklch(18% 0 0);
+  --color-muted-foreground: oklch(65% 0 0);
+  --color-accent: oklch(18% 0 0);
+  --color-accent-foreground: oklch(98% 0 0);
+  --color-destructive: oklch(31% 0.2 25);
+  --color-destructive-foreground: oklch(98% 0 0);
+  --color-border: oklch(18% 0 0);
+  --color-input: oklch(18% 0 0);
+  --color-ring: oklch(84% 0 0);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 自定义画布样式 */
+.canvas-container {
+  position: relative;
+  display: inline-block;
+}
+
+.drawing-canvas {
+  border: 2px solid white;
+  border-radius: 0.75rem;
+  background-color: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.drawing-canvas:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+}
+
+/* 手势指示器动画 */
+.gesture-indicator {
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid white;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: all 0.1s ease;
+  animation: pulse 1s infinite;
+  transform: translate(-50%, -50%); /* 确保指示器居中显示 */
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+}
